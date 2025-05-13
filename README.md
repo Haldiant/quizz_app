@@ -19,3 +19,6 @@ Note:
 
 - SizedBox dapat digunakan seperti Center Widget dalam membungkus sebuah Column atau Row
   - Gunakan Width = infinity untuk menggunakan semua space yang dapat digunakan.
+- mainAxisAlignment => Vertical (Column) | Horizontal (Row)
+- crossAxisAlignment => Vertical (Row) | Horizontal (Column)
+- Refactor Column ke dalam container untuk menyeting padding dari komponen
