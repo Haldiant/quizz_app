@@ -12,7 +12,8 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   @override
   Widget build(BuildContext context) {
-    final currentQuestion = questions[0];
+    final currentQuestion =
+        questions[0]; // Replace with the logic to get the current question
 
     return SizedBox(
       width: double.infinity,
@@ -26,12 +27,14 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
               currentQuestion.questions,
               style: TextStyle(color: Colors.white),
               textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 40),
+            ), // This will display the question text
+            SizedBox(
+              height: 40,
+            ), // Add some space between the question and the answers
 
-            ...currentQuestion.answer.map((answer) {
+            ...currentQuestion.getShuffledAnswer().map((answer) {
               return AnswerButton(answerText: answer, onTap: () {});
-            }),
+            }), // This will create a list of AnswerButton widgets
           ],
         ),
       ),

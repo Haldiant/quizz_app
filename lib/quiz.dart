@@ -10,20 +10,23 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
-  var activeScreen = 'start-screen';
+  var activeScreen =
+      'start-screen'; // This variable will be used to switch between the screens
 
   void switchScreen() {
     setState(() {
       activeScreen = 'questions-screen';
     });
-  }
+  } // This function will be called when the button is presseds
 
   @override
   Widget build(BuildContext context) {
-    Widget screenWidget = StartScreen(switchScreen);
+    Widget screenWidget = StartScreen(
+      switchScreen,
+    ); // This will show the StartScreen by default
     if (activeScreen == 'questions-screen') {
       screenWidget = QuestionsScreen();
-    }
+    } // This will switch the screen to the QuestionsScreen when the button is pressed
 
     return MaterialApp(
       home: Scaffold(

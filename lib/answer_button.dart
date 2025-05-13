@@ -21,6 +21,6 @@ class AnswerButton extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
       ),
       child: Text(answerText),
-    );
+    ); // This will create a button with the answer text
   }
 }
