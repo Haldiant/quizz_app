@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quizz_app/answer_button.dart';
 import 'package:quizz_app/data/questions.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({super.key});
@@ -10,10 +11,20 @@ class QuestionsScreen extends StatefulWidget {
 }
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
+  var currentQuestionIndex = 0;
+
+  void answerQuestions() {
+    // CurrentQuestionIndex = CurrentQuestionIndex + 1;
+    // CurrentQuestionIndex += 1;
+    setState(() {
+      currentQuestionIndex++; // This will increment the current question index by 1
+    });
+  } // This function will be called when the answer is selected
+
   @override
   Widget build(BuildContext context) {
     final currentQuestion =
-        questions[0]; // Replace with the logic to get the current question
+        questions[currentQuestionIndex]; // Replace with the logic to get the current question
 
     return SizedBox(
       width: double.infinity,
@@ -25,7 +36,11 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           children: [
             Text(
               currentQuestion.questions,
-              style: TextStyle(color: Colors.white),
+              style: GoogleFonts.workSans(
+                color: Colors.white,
+                fontSize: 24,
+                fontWeight: FontWeight.w600,
+              ), // This will display the question text
               textAlign: TextAlign.center,
             ), // This will display the question text
             SizedBox(
@@ -33,8 +48,8 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
             ), // Add some space between the question and the answers
 
             ...currentQuestion.getShuffledAnswer().map((answer) {
-              return AnswerButton(answerText: answer, onTap: () {});
-            }), // This will create a list of AnswerButton widgets
+              return AnswerButton(answerText: answer, onTap: answerQuestions);
+            }), // This will create a button for each answer
           ],
         ),
       ),
