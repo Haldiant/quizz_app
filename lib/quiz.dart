@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quizz_app/data/questions.dart';
 import 'package:quizz_app/questions_screen.dart';
 import 'package:quizz_app/start_screen.dart';
+import 'package:quizz_app/result_screen.dart';
 
 class Quiz extends StatefulWidget {
   const Quiz({super.key});
@@ -28,7 +29,7 @@ class _QuizState extends State<Quiz> {
       setState(() {
         selectedAnswers = []; // This will reset the selected answers
         activeScreen =
-            'start-screen'; // This will switch back to the start screen
+            'result-screen'; // This will switch to the result screen when all questions are answered
       });
     }
   }
@@ -42,6 +43,9 @@ class _QuizState extends State<Quiz> {
       screenWidget = QuestionsScreen(onSelectAnswer: chooseAnswer);
     } // This will show the QuestionsScreen when the button is pressed
 
+    if (activeScreen == 'result-screen') {
+      screenWidget = ResultScreen(choosenAnswers: selectedAnswers);
+    }
     return MaterialApp(
       home: Scaffold(
         body: Container(
