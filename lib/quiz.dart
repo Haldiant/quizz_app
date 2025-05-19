@@ -10,6 +10,8 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
+  final List<String> selectedAnswers =
+      []; // This will store the selected answers
   var activeScreen =
       'start-screen'; // This variable will be used to switch between the screens
 
@@ -19,14 +21,18 @@ class _QuizState extends State<Quiz> {
     });
   } // This function will be called when the button is presseds
 
+  void chooseAnswer(String answer) {
+    selectedAnswers.add(answer);
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget screenWidget = StartScreen(
       switchScreen,
     ); // This will show the StartScreen by default
     if (activeScreen == 'questions-screen') {
-      screenWidget = QuestionsScreen();
-    } // This will switch the screen to the QuestionsScreen when the button is pressed
+      screenWidget = QuestionsScreen(onSelectAnswer: chooseAnswer);
+    } // This will show the QuestionsScreen when the button is pressed
 
     return MaterialApp(
       home: Scaffold(
