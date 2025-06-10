@@ -40,7 +40,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              currentQuestion.questions,
+              currentQuestion.question,
               style: GoogleFonts.workSans(
                 color: Colors.white,
                 fontSize: 24,
