@@ -44,7 +44,7 @@ class _QuizState extends State<Quiz> {
     } // This will show the QuestionsScreen when the button is pressed
 
     if (activeScreen == 'result-screen') {
-      screenWidget = ResultScreen(choosenAnswers: selectedAnswers);
+      screenWidget = ResultScreen(chosenAnswers: selectedAnswers);
     }
     return MaterialApp(
       home: Scaffold(
