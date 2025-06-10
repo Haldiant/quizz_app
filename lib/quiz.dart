@@ -27,7 +27,7 @@ class _QuizState extends State<Quiz> {
 
     if (selectedAnswers.length == questions.length) {
       setState(() {
-        selectedAnswers = []; // This will reset the selected answers
+        // This will reset the selected answers
         activeScreen =
             'result-screen'; // This will switch to the result screen when all questions are answered
       });
