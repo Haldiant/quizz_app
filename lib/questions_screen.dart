@@ -52,7 +52,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
               height: 40,
             ), // Add some space between the question and the answers
 
-            ...currentQuestion.getShuffledAnswer().map((answer) {
+            ...currentQuestion.shuffledAnswer.map((answer) {
               return AnswerButton(
                 answerText: answer,
                 onTap: () {
